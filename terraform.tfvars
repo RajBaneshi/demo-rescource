@@ -1,2 +1,2 @@
 location = "centralindia"
-prefix = "demo"
+prefix = "ansible"

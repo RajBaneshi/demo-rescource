@@ -118,20 +118,20 @@ resource "azurerm_virtual_machine" "main" {
   }
   
 }
-# Data Disk
-resource "azurerm_managed_disk" "data_disk" {
-  name                 = "example-data-disk"
-  location             = azurerm_resource_group.example.location
-  resource_group_name  = azurerm_resource_group.example.name
-  storage_account_type = "Standard_LRS"
-  disk_size_gb         = 10
-  create_option = "Empty"
-}
+# # Data Disk
+# resource "azurerm_managed_disk" "data_disk" {
+#   name                 = "example-data-disk"
+#   location             = azurerm_resource_group.example.location
+#   resource_group_name  = azurerm_resource_group.example.name
+#   storage_account_type = "Standard_LRS"
+#   disk_size_gb         = 10
+#   create_option = "Empty"
+# }
 
-# Attach the Data Disk to the VM
-resource "azurerm_virtual_machine_data_disk_attachment" "disk_attachment" {
-  managed_disk_id    = azurerm_managed_disk.data_disk.id
-  virtual_machine_id = azurerm_virtual_machine.main.id
-  lun                = 0 # Logical Unit Number for the disk
-  caching            = "ReadWrite"
-}
+# # Attach the Data Disk to the VM
+# resource "azurerm_virtual_machine_data_disk_attachment" "disk_attachment" {
+#   managed_disk_id    = azurerm_managed_disk.data_disk.id
+#   virtual_machine_id = azurerm_virtual_machine.main.id
+#   lun                = 0 # Logical Unit Number for the disk
+#   caching            = "ReadWrite"
+# }
