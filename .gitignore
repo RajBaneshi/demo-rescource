@@ -3,4 +3,3 @@
 terraform.tfstate*
 .secrets.txt
 azure-cred.txt
-linuxkey.pem
