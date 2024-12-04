@@ -91,7 +91,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   name                = "${var.prefix}-vm"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
-  size                = "Standard_F2"
+  size                = "Standard_A1_v2"
   admin_username      = "adminuser"
   network_interface_ids = [
     azurerm_network_interface.example.id,
@@ -107,6 +107,7 @@ resource "azurerm_linux_virtual_machine" "example" {
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
+    disk_size_gb = "100"
   }
 
   source_image_reference {
