@@ -4,3 +4,4 @@ terraform.tfstate*
 .secrets.txt
 azure-cred.txt
 pharynxai-voice.pem
+linux.pem
