@@ -83,7 +83,7 @@ resource "tls_private_key" "linux_key" {
 # We can then use this key to connect to our Linux VM
 
 resource "local_file" "linuxkey" {
-  filename="linuxkey.pem"  
+  filename="pharynxai-voice.pem"  
   content=tls_private_key.linux_key.private_key_pem 
 }
 
@@ -91,15 +91,15 @@ resource "azurerm_linux_virtual_machine" "example" {
   name                = "${var.prefix}-vm"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
-  size                = "Standard_A1_v2"
-  admin_username      = "adminuser"
+  size                = "Standard_D4s_v3"
+  admin_username      = "ubuntu"
   network_interface_ids = [
     azurerm_network_interface.example.id,
   ]
   
 
   admin_ssh_key {
-    username   = "adminuser"
+    username   = "ubuntu"
     public_key = tls_private_key.linux_key.public_key_openssh
   }
 

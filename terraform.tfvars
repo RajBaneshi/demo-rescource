@@ -1,2 +1,2 @@
 location = "centralindia"
-prefix = "ansible"
+prefix = "pharynxai-voice"
