@@ -1,2 +1,2 @@
 location = "centralindia"
-prefix = "pharynxai-voice"
+prefix = "nlu-transcribe"

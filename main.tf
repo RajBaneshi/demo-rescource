@@ -62,6 +62,17 @@ resource "azurerm_network_security_group" "main" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+    security_rule {
+    name                       = "AllowHTTPS"
+    priority                   = 201
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "443"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
 }
 
 resource "azurerm_public_ip" "example" {
@@ -83,7 +94,7 @@ resource "tls_private_key" "linux_key" {
 # We can then use this key to connect to our Linux VM
 
 resource "local_file" "linuxkey" {
-  filename="pharynxai-voice.pem"  
+  filename="nlu-transcribe.pem"  
   content=tls_private_key.linux_key.private_key_pem 
 }
 
